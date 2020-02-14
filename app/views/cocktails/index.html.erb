@@ -1,0 +1,20 @@
+<div class="banner-show" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1559629279-9c61598ef63e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1052&q=80);">
+  <div class="container">
+    <h1><strong>Maxi Cocktails</strong></h1>
+    <p style="color: white">Un maximum de cocktails pour un maximum de plaisir</p>
+    <a class="btn btn-flat" href="#">Apply now</a>
+  </div>
+</div>
+<div class="container mt-3">
+  <div class="row d-flex justify-content-evenly">
+    <% @cocktails.each do |cocktail| %>
+    <div class="col-lg-4 col-sm-3 col-md-5 mb-3">
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1578664182391-acdf392468a0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60)">
+          <div class="card-content">
+            <p style="color: white; text-decoration: none"><%= link_to cocktail.name, cocktail_path(cocktail) %></p>
+          </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>

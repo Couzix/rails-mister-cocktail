@@ -1,0 +1,27 @@
+<div class="banner" style="z-index:2; background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1470337458703-46ad1756a187?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1049&q=80); position: relative;">
+  <div class="container">
+    <h1><strong><%= @cocktail.name %></strong></h1>
+  </div>
+</div>
+<div class="container">
+  <div class="row d-flex justify-content-center">
+      <div class="col-lg-4 col-sm-3 col-md-5 mb-3">
+      <% @cocktail.doses.each do |d| %>
+      <div class="card">
+        <div class="card-description">
+            Description: <%= d.description %>
+        </div>
+        <div class="card-name">
+            Ingredient: <%= d.ingredient.name %>
+        </div>
+            <%= link_to dose_path(d), method: :delete, data: { confirm: "Are you sure?" } do %>
+              Delete
+            <% end %>
+          <% end %>
+      </div>
+      </div>
+  </div>
+</div>
+<%= link_to 'Back to list', cocktails_path %>
+<%= link_to 'Add a dose', new_cocktail_dose_path(@cocktail) %>
+
